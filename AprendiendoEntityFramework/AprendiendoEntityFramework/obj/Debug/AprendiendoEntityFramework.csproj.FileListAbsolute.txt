@@ -1,0 +1,11 @@
+E:\Program Files\AdoNet\AprendiendoEntityFramework\AprendiendoEntityFramework\bin\Debug\AprendiendoEntityFramework.exe.config
+E:\Program Files\AdoNet\AprendiendoEntityFramework\AprendiendoEntityFramework\bin\Debug\AprendiendoEntityFramework.exe
+E:\Program Files\AdoNet\AprendiendoEntityFramework\AprendiendoEntityFramework\bin\Debug\AprendiendoEntityFramework.pdb
+E:\Program Files\AdoNet\AprendiendoEntityFramework\AprendiendoEntityFramework\bin\Debug\EntityFramework.dll
+E:\Program Files\AdoNet\AprendiendoEntityFramework\AprendiendoEntityFramework\bin\Debug\EntityFramework.xml
+E:\Program Files\AdoNet\AprendiendoEntityFramework\AprendiendoEntityFramework\obj\Debug\AprendiendoEntityFramework.csprojResolveAssemblyReference.cache
+E:\Program Files\AdoNet\AprendiendoEntityFramework\AprendiendoEntityFramework\obj\Debug\AprendiendoEntityFramework.Form1.resources
+E:\Program Files\AdoNet\AprendiendoEntityFramework\AprendiendoEntityFramework\obj\Debug\AprendiendoEntityFramework.Properties.Resources.resources
+E:\Program Files\AdoNet\AprendiendoEntityFramework\AprendiendoEntityFramework\obj\Debug\AprendiendoEntityFramework.csproj.GenerateResource.Cache
+E:\Program Files\AdoNet\AprendiendoEntityFramework\AprendiendoEntityFramework\obj\Debug\AprendiendoEntityFramework.exe
+E:\Program Files\AdoNet\AprendiendoEntityFramework\AprendiendoEntityFramework\obj\Debug\AprendiendoEntityFramework.pdb

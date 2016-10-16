@@ -1,0 +1,210 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="NeptunoModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="NeptunoModelStoreContainer">
+          <EntitySet Name="Productos" EntityType="NeptunoModel.Store.Productos" store:Type="Tables" Schema="dbo" />
+        </EntityContainer>
+        <EntityType Name="Productos">
+          <Key>
+            <PropertyRef Name="IdProducto" />
+          </Key>
+          <Property Name="IdProducto" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="NombreProducto" Type="nvarchar" Nullable="false" MaxLength="40" />
+          <Property Name="IdProveedor" Type="int" />
+          <Property Name="IdCategoría" Type="int" />
+          <Property Name="CantidadPorUnidad" Type="nvarchar" MaxLength="20" />
+          <Property Name="PrecioUnidad" Type="money" />
+          <Property Name="UnidadesEnExistencia" Type="smallint" />
+          <Property Name="UnidadesEnPedido" Type="smallint" />
+          <Property Name="NivelNuevoPedido" Type="int" />
+          <Property Name="Suspendido" Type="bit" Nullable="false" />
+        </EntityType>
+        <Function Name="usp_Actualizar_Producto" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Nombre" Type="varchar" Mode="In" />
+          <Parameter Name="IdProveedor" Type="int" Mode="In" />
+          <Parameter Name="IdCategoria" Type="int" Mode="In" />
+          <Parameter Name="Precio" Type="money" Mode="In" />
+          <Parameter Name="Stock" Type="int" Mode="In" />
+          <Parameter Name="IdProducto" Type="int" Mode="In" />
+        </Function>
+        <Function Name="usp_Eliminar_Producto" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdProducto" Type="int" Mode="In" />
+        </Function>
+        <Function Name="usp_Inserta_Producto" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Nombre" Type="varchar" Mode="In" />
+          <Parameter Name="IdProveedor" Type="int" Mode="In" />
+          <Parameter Name="IdCategoria" Type="int" Mode="In" />
+          <Parameter Name="Precio" Type="money" Mode="In" />
+          <Parameter Name="Stock" Type="int" Mode="In" />
+          <Parameter Name="IdProducto" Type="int" Mode="InOut" />
+        </Function>
+        <Function Name="usp_ListaCategorias" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="usp_ListaProductos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="usp_ListaProveedores" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="usp_Producto_Por_Codigo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdProducto" Type="int" Mode="In" />
+        </Function>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="NeptunoModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="NeptunoEntities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="Productos" EntityType="NeptunoModel.Producto" />
+          <FunctionImport Name="usp_Actualizar_Producto">
+            <Parameter Name="Nombre" Mode="In" Type="String" />
+            <Parameter Name="IdProveedor" Mode="In" Type="Int32" />
+            <Parameter Name="IdCategoria" Mode="In" Type="Int32" />
+            <Parameter Name="Precio" Mode="In" Type="Decimal" />
+            <Parameter Name="Stock" Mode="In" Type="Int32" />
+            <Parameter Name="IdProducto" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_Eliminar_Producto">
+            <Parameter Name="IdProducto" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_Inserta_Producto">
+            <Parameter Name="Nombre" Mode="In" Type="String" />
+            <Parameter Name="IdProveedor" Mode="In" Type="Int32" />
+            <Parameter Name="IdCategoria" Mode="In" Type="Int32" />
+            <Parameter Name="Precio" Mode="In" Type="Decimal" />
+            <Parameter Name="Stock" Mode="In" Type="Int32" />
+            <Parameter Name="IdProducto" Mode="InOut" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_ListaCategorias" ReturnType="Collection(NeptunoModel.usp_ListaCategorias_Result)" />
+          <FunctionImport Name="usp_ListaProductos" ReturnType="Collection(NeptunoModel.usp_ListaProductos_Result)" />
+          <FunctionImport Name="usp_ListaProveedores" ReturnType="Collection(NeptunoModel.usp_ListaProveedores_Result)" />
+          <FunctionImport Name="usp_Producto_Por_Codigo" ReturnType="Collection(NeptunoModel.usp_Producto_Por_Codigo_Result)">
+            <Parameter Name="IdProducto" Mode="In" Type="Int32" />
+          </FunctionImport>
+        </EntityContainer>
+        <EntityType Name="Producto">
+          <Key>
+            <PropertyRef Name="IdProducto" />
+          </Key>
+          <Property Name="IdProducto" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="NombreProducto" Type="String" Nullable="false" MaxLength="40" Unicode="true" FixedLength="false" />
+          <Property Name="IdProveedor" Type="Int32" />
+          <Property Name="IdCategoría" Type="Int32" />
+          <Property Name="CantidadPorUnidad" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+          <Property Name="PrecioUnidad" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="UnidadesEnExistencia" Type="Int16" />
+          <Property Name="UnidadesEnPedido" Type="Int16" />
+          <Property Name="NivelNuevoPedido" Type="Int32" />
+          <Property Name="Suspendido" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <ComplexType Name="usp_ListaCategorias_Result">
+          <Property Type="Int32" Name="IdCategoría" Nullable="false" />
+          <Property Type="String" Name="NombreCategoría" Nullable="false" MaxLength="15" />
+        </ComplexType>
+        <ComplexType Name="usp_ListaProductos_Result">
+          <Property Type="Int32" Name="IdProducto" Nullable="false" />
+          <Property Type="String" Name="NombreProducto" Nullable="false" MaxLength="40" />
+          <Property Type="Int32" Name="IdProveedor" Nullable="true" />
+          <Property Type="Int32" Name="IdCategoría" Nullable="true" />
+          <Property Type="Decimal" Name="PrecioUnidad" Nullable="true" Precision="19" />
+          <Property Type="Int16" Name="UnidadesEnExistencia" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="usp_ListaProveedores_Result">
+          <Property Type="Int32" Name="IdProveedor" Nullable="false" />
+          <Property Type="String" Name="NombreCompañía" Nullable="false" MaxLength="40" />
+        </ComplexType>
+        <ComplexType Name="usp_Producto_Por_Codigo_Result">
+          <Property Type="Int32" Name="IdProducto" Nullable="false" />
+          <Property Type="String" Name="NombreProducto" Nullable="false" MaxLength="40" />
+          <Property Type="Int32" Name="IdProveedor" Nullable="true" />
+          <Property Type="Int32" Name="IdCategoría" Nullable="true" />
+          <Property Type="Decimal" Name="PrecioUnidad" Nullable="true" Precision="19" />
+          <Property Type="Int16" Name="UnidadesEnExistencia" Nullable="true" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="NeptunoModelStoreContainer" CdmEntityContainer="NeptunoEntities">
+          <EntitySetMapping Name="Productos">
+            <EntityTypeMapping TypeName="NeptunoModel.Producto">
+              <MappingFragment StoreEntitySet="Productos">
+                <ScalarProperty Name="IdProducto" ColumnName="IdProducto" />
+                <ScalarProperty Name="NombreProducto" ColumnName="NombreProducto" />
+                <ScalarProperty Name="IdProveedor" ColumnName="IdProveedor" />
+                <ScalarProperty Name="IdCategoría" ColumnName="IdCategoría" />
+                <ScalarProperty Name="CantidadPorUnidad" ColumnName="CantidadPorUnidad" />
+                <ScalarProperty Name="PrecioUnidad" ColumnName="PrecioUnidad" />
+                <ScalarProperty Name="UnidadesEnExistencia" ColumnName="UnidadesEnExistencia" />
+                <ScalarProperty Name="UnidadesEnPedido" ColumnName="UnidadesEnPedido" />
+                <ScalarProperty Name="NivelNuevoPedido" ColumnName="NivelNuevoPedido" />
+                <ScalarProperty Name="Suspendido" ColumnName="Suspendido" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="usp_Actualizar_Producto" FunctionName="NeptunoModel.Store.usp_Actualizar_Producto" />
+          <FunctionImportMapping FunctionImportName="usp_Eliminar_Producto" FunctionName="NeptunoModel.Store.usp_Eliminar_Producto" />
+          <FunctionImportMapping FunctionImportName="usp_Inserta_Producto" FunctionName="NeptunoModel.Store.usp_Inserta_Producto" />
+          <FunctionImportMapping FunctionImportName="usp_ListaCategorias" FunctionName="NeptunoModel.Store.usp_ListaCategorias">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="NeptunoModel.usp_ListaCategorias_Result">
+                <ScalarProperty Name="IdCategoría" ColumnName="IdCategoría" />
+                <ScalarProperty Name="NombreCategoría" ColumnName="NombreCategoría" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_ListaProductos" FunctionName="NeptunoModel.Store.usp_ListaProductos">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="NeptunoModel.usp_ListaProductos_Result">
+                <ScalarProperty Name="IdProducto" ColumnName="IdProducto" />
+                <ScalarProperty Name="NombreProducto" ColumnName="NombreProducto" />
+                <ScalarProperty Name="IdProveedor" ColumnName="IdProveedor" />
+                <ScalarProperty Name="IdCategoría" ColumnName="IdCategoría" />
+                <ScalarProperty Name="PrecioUnidad" ColumnName="PrecioUnidad" />
+                <ScalarProperty Name="UnidadesEnExistencia" ColumnName="UnidadesEnExistencia" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_ListaProveedores" FunctionName="NeptunoModel.Store.usp_ListaProveedores">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="NeptunoModel.usp_ListaProveedores_Result">
+                <ScalarProperty Name="IdProveedor" ColumnName="IdProveedor" />
+                <ScalarProperty Name="NombreCompañía" ColumnName="NombreCompañía" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_Producto_Por_Codigo" FunctionName="NeptunoModel.Store.usp_Producto_Por_Codigo">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="NeptunoModel.usp_Producto_Por_Codigo_Result">
+                <ScalarProperty Name="IdProducto" ColumnName="IdProducto" />
+                <ScalarProperty Name="NombreProducto" ColumnName="NombreProducto" />
+                <ScalarProperty Name="IdProveedor" ColumnName="IdProveedor" />
+                <ScalarProperty Name="IdCategoría" ColumnName="IdCategoría" />
+                <ScalarProperty Name="PrecioUnidad" ColumnName="PrecioUnidad" />
+                <ScalarProperty Name="UnidadesEnExistencia" ColumnName="UnidadesEnExistencia" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

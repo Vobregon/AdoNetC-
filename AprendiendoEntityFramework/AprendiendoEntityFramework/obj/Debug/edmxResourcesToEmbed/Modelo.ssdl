@@ -1,0 +1,218 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="NeptunoModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="NeptunoModelStoreContainer">
+    <EntitySet Name="Categorías" EntityType="NeptunoModel.Store.Categorías" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Clientes" EntityType="NeptunoModel.Store.Clientes" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Detalles" EntityType="NeptunoModel.Store.Detalles" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Empleados" EntityType="NeptunoModel.Store.Empleados" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Pedidos" EntityType="NeptunoModel.Store.Pedidos" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Productos" EntityType="NeptunoModel.Store.Productos" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Proveedores" EntityType="NeptunoModel.Store.Proveedores" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_Detalles_Pedidos" Association="NeptunoModel.Store.FK_Detalles_Pedidos">
+      <End Role="Pedidos" EntitySet="Pedidos" />
+      <End Role="Detalles" EntitySet="Detalles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Detalles_Productos" Association="NeptunoModel.Store.FK_Detalles_Productos">
+      <End Role="Productos" EntitySet="Productos" />
+      <End Role="Detalles" EntitySet="Detalles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Pedidos_Clientes" Association="NeptunoModel.Store.FK_Pedidos_Clientes">
+      <End Role="Clientes" EntitySet="Clientes" />
+      <End Role="Pedidos" EntitySet="Pedidos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Pedidos_Empleados" Association="NeptunoModel.Store.FK_Pedidos_Empleados">
+      <End Role="Empleados" EntitySet="Empleados" />
+      <End Role="Pedidos" EntitySet="Pedidos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Productos_Categorías" Association="NeptunoModel.Store.FK_Productos_Categorías">
+      <End Role="Categorías" EntitySet="Categorías" />
+      <End Role="Productos" EntitySet="Productos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Productos_Proveedores" Association="NeptunoModel.Store.FK_Productos_Proveedores">
+      <End Role="Proveedores" EntitySet="Proveedores" />
+      <End Role="Productos" EntitySet="Productos" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Categorías">
+    <Key>
+      <PropertyRef Name="IdCategoría" />
+    </Key>
+    <Property Name="IdCategoría" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="NombreCategoría" Type="nvarchar" Nullable="false" MaxLength="15" />
+    <Property Name="Descripción" Type="ntext" />
+    <Property Name="Imagen" Type="image" />
+  </EntityType>
+  <EntityType Name="Clientes">
+    <Key>
+      <PropertyRef Name="IdCliente" />
+    </Key>
+    <Property Name="IdCliente" Type="nvarchar" Nullable="false" MaxLength="5" />
+    <Property Name="NombreCompañía" Type="nvarchar" Nullable="false" MaxLength="40" />
+    <Property Name="NombreContacto" Type="nvarchar" MaxLength="30" />
+    <Property Name="CargoContacto" Type="nvarchar" MaxLength="30" />
+    <Property Name="Dirección" Type="nvarchar" MaxLength="60" />
+    <Property Name="Ciudad" Type="nvarchar" MaxLength="15" />
+    <Property Name="Región" Type="nvarchar" MaxLength="15" />
+    <Property Name="CódPostal" Type="nvarchar" MaxLength="10" />
+    <Property Name="País" Type="nvarchar" MaxLength="15" />
+    <Property Name="Teléfono" Type="nvarchar" MaxLength="24" />
+    <Property Name="Fax" Type="nvarchar" MaxLength="24" />
+  </EntityType>
+  <EntityType Name="Detalles">
+    <Key>
+      <PropertyRef Name="IdPedido" />
+      <PropertyRef Name="IdProducto" />
+    </Key>
+    <Property Name="IdPedido" Type="int" Nullable="false" />
+    <Property Name="IdProducto" Type="int" Nullable="false" />
+    <Property Name="PrecioUnidad" Type="money" Nullable="false" />
+    <Property Name="Cantidad" Type="smallint" Nullable="false" />
+    <Property Name="Descuento" Type="real" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Empleados">
+    <Key>
+      <PropertyRef Name="IdEmpleado" />
+    </Key>
+    <Property Name="IdEmpleado" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Apellidos" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="Nombre" Type="nvarchar" Nullable="false" MaxLength="10" />
+    <Property Name="Cargo" Type="nvarchar" MaxLength="30" />
+    <Property Name="Tratamiento" Type="nvarchar" MaxLength="25" />
+    <Property Name="FechaNacimiento" Type="smalldatetime" />
+    <Property Name="FechaContratación" Type="smalldatetime" />
+    <Property Name="Dirección" Type="nvarchar" MaxLength="60" />
+    <Property Name="Ciudad" Type="nvarchar" MaxLength="15" />
+    <Property Name="Región" Type="nvarchar" MaxLength="15" />
+    <Property Name="CódPostal" Type="nvarchar" MaxLength="10" />
+    <Property Name="País" Type="nvarchar" MaxLength="15" />
+    <Property Name="TelDomicilio" Type="nvarchar" MaxLength="24" />
+    <Property Name="Extensión" Type="nvarchar" MaxLength="4" />
+    <Property Name="Foto" Type="nvarchar" MaxLength="255" />
+    <Property Name="Notas" Type="ntext" />
+    <Property Name="Jefe" Type="int" />
+  </EntityType>
+  <EntityType Name="Pedidos">
+    <Key>
+      <PropertyRef Name="IdPedido" />
+    </Key>
+    <Property Name="IdPedido" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="IdCliente" Type="nvarchar" Nullable="false" MaxLength="5" />
+    <Property Name="IdEmpleado" Type="int" />
+    <Property Name="FechaPedido" Type="smalldatetime" />
+    <Property Name="FechaEntrega" Type="smalldatetime" />
+    <Property Name="FechaEnvío" Type="smalldatetime" />
+    <Property Name="FormaEnvío" Type="int" />
+    <Property Name="Cargo" Type="money" />
+    <Property Name="Destinatario" Type="nvarchar" MaxLength="40" />
+    <Property Name="DirecciónDestinatario" Type="nvarchar" MaxLength="60" />
+    <Property Name="CiudadDestinatario" Type="nvarchar" MaxLength="15" />
+    <Property Name="RegiónDestinatario" Type="nvarchar" MaxLength="15" />
+    <Property Name="CódPostalDestinatario" Type="nvarchar" MaxLength="10" />
+    <Property Name="PaísDestinatario" Type="nvarchar" MaxLength="15" />
+  </EntityType>
+  <EntityType Name="Productos">
+    <Key>
+      <PropertyRef Name="IdProducto" />
+    </Key>
+    <Property Name="IdProducto" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="NombreProducto" Type="nvarchar" Nullable="false" MaxLength="40" />
+    <Property Name="IdProveedor" Type="int" />
+    <Property Name="IdCategoría" Type="int" />
+    <Property Name="CantidadPorUnidad" Type="nvarchar" MaxLength="20" />
+    <Property Name="PrecioUnidad" Type="money" />
+    <Property Name="UnidadesEnExistencia" Type="smallint" />
+    <Property Name="UnidadesEnPedido" Type="smallint" />
+    <Property Name="NivelNuevoPedido" Type="int" />
+    <Property Name="Suspendido" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Proveedores">
+    <Key>
+      <PropertyRef Name="IdProveedor" />
+    </Key>
+    <Property Name="IdProveedor" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="NombreCompañía" Type="nvarchar" Nullable="false" MaxLength="40" />
+    <Property Name="NombreContacto" Type="nvarchar" MaxLength="30" />
+    <Property Name="CargoContacto" Type="nvarchar" MaxLength="30" />
+    <Property Name="Dirección" Type="nvarchar" MaxLength="60" />
+    <Property Name="Ciudad" Type="nvarchar" MaxLength="15" />
+    <Property Name="Región" Type="nvarchar" MaxLength="15" />
+    <Property Name="CódPostal" Type="nvarchar" MaxLength="10" />
+    <Property Name="País" Type="nvarchar" MaxLength="15" />
+    <Property Name="Teléfono" Type="nvarchar" MaxLength="24" />
+    <Property Name="Fax" Type="nvarchar" MaxLength="24" />
+    <Property Name="PáginaPrincipal" Type="ntext" />
+  </EntityType>
+  <Association Name="FK_Detalles_Pedidos">
+    <End Role="Pedidos" Type="NeptunoModel.Store.Pedidos" Multiplicity="1" />
+    <End Role="Detalles" Type="NeptunoModel.Store.Detalles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pedidos">
+        <PropertyRef Name="IdPedido" />
+      </Principal>
+      <Dependent Role="Detalles">
+        <PropertyRef Name="IdPedido" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Detalles_Productos">
+    <End Role="Productos" Type="NeptunoModel.Store.Productos" Multiplicity="1" />
+    <End Role="Detalles" Type="NeptunoModel.Store.Detalles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Productos">
+        <PropertyRef Name="IdProducto" />
+      </Principal>
+      <Dependent Role="Detalles">
+        <PropertyRef Name="IdProducto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Pedidos_Clientes">
+    <End Role="Clientes" Type="NeptunoModel.Store.Clientes" Multiplicity="1" />
+    <End Role="Pedidos" Type="NeptunoModel.Store.Pedidos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Clientes">
+        <PropertyRef Name="IdCliente" />
+      </Principal>
+      <Dependent Role="Pedidos">
+        <PropertyRef Name="IdCliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Pedidos_Empleados">
+    <End Role="Empleados" Type="NeptunoModel.Store.Empleados" Multiplicity="0..1" />
+    <End Role="Pedidos" Type="NeptunoModel.Store.Pedidos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Empleados">
+        <PropertyRef Name="IdEmpleado" />
+      </Principal>
+      <Dependent Role="Pedidos">
+        <PropertyRef Name="IdEmpleado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Productos_Categorías">
+    <End Role="Categorías" Type="NeptunoModel.Store.Categorías" Multiplicity="0..1" />
+    <End Role="Productos" Type="NeptunoModel.Store.Productos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Categorías">
+        <PropertyRef Name="IdCategoría" />
+      </Principal>
+      <Dependent Role="Productos">
+        <PropertyRef Name="IdCategoría" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Productos_Proveedores">
+    <End Role="Proveedores" Type="NeptunoModel.Store.Proveedores" Multiplicity="0..1" />
+    <End Role="Productos" Type="NeptunoModel.Store.Productos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Proveedores">
+        <PropertyRef Name="IdProveedor" />
+      </Principal>
+      <Dependent Role="Productos">
+        <PropertyRef Name="IdProveedor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="usp_ListaProductos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+</Schema>

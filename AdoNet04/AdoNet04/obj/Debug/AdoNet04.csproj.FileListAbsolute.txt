@@ -1,0 +1,11 @@
+E:\Program Files\AdoNet\AdoNet04\AdoNet04\bin\Debug\AdoNet04.exe.config
+E:\Program Files\AdoNet\AdoNet04\AdoNet04\bin\Debug\AdoNet04.exe
+E:\Program Files\AdoNet\AdoNet04\AdoNet04\bin\Debug\AdoNet04.pdb
+E:\Program Files\AdoNet\AdoNet04\AdoNet04\obj\Debug\AdoNet04.csprojResolveAssemblyReference.cache
+E:\Program Files\AdoNet\AdoNet04\AdoNet04\obj\Debug\AdoNet04.Properties.Resources.resources
+E:\Program Files\AdoNet\AdoNet04\AdoNet04\obj\Debug\AdoNet04.frmProducto.resources
+E:\Program Files\AdoNet\AdoNet04\AdoNet04\obj\Debug\AdoNet04.csproj.GenerateResource.Cache
+E:\Program Files\AdoNet\AdoNet04\AdoNet04\obj\Debug\AdoNet04.exe
+E:\Program Files\AdoNet\AdoNet04\AdoNet04\obj\Debug\AdoNet04.pdb
+E:\Program Files\AdoNet\AdoNet04\AdoNet04\bin\Debug\EntityFramework.dll
+E:\Program Files\AdoNet\AdoNet04\AdoNet04\bin\Debug\EntityFramework.xml

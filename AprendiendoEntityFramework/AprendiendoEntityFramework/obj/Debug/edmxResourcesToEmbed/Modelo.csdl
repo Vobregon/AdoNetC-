@@ -1,0 +1,238 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="NeptunoModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="NeptunoEntities" p1:LazyLoadingEnabled="true">
+    <EntitySet Name="Categorías" EntityType="NeptunoModel.Categorías" />
+    <EntitySet Name="Clientes" EntityType="NeptunoModel.Cliente" />
+    <EntitySet Name="Detalles" EntityType="NeptunoModel.Detalle" />
+    <EntitySet Name="Empleados" EntityType="NeptunoModel.Empleado" />
+    <EntitySet Name="Pedidos" EntityType="NeptunoModel.Pedido" />
+    <EntitySet Name="Productos" EntityType="NeptunoModel.Producto" />
+    <EntitySet Name="Proveedores" EntityType="NeptunoModel.Proveedore" />
+    <AssociationSet Name="FK_Productos_Categorías" Association="NeptunoModel.FK_Productos_Categorías">
+      <End Role="Categorías" EntitySet="Categorías" />
+      <End Role="Productos" EntitySet="Productos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Pedidos_Clientes" Association="NeptunoModel.FK_Pedidos_Clientes">
+      <End Role="Clientes" EntitySet="Clientes" />
+      <End Role="Pedidos" EntitySet="Pedidos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Detalles_Pedidos" Association="NeptunoModel.FK_Detalles_Pedidos">
+      <End Role="Pedidos" EntitySet="Pedidos" />
+      <End Role="Detalles" EntitySet="Detalles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Detalles_Productos" Association="NeptunoModel.FK_Detalles_Productos">
+      <End Role="Productos" EntitySet="Productos" />
+      <End Role="Detalles" EntitySet="Detalles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Pedidos_Empleados" Association="NeptunoModel.FK_Pedidos_Empleados">
+      <End Role="Empleados" EntitySet="Empleados" />
+      <End Role="Pedidos" EntitySet="Pedidos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Productos_Proveedores" Association="NeptunoModel.FK_Productos_Proveedores">
+      <End Role="Proveedores" EntitySet="Proveedores" />
+      <End Role="Productos" EntitySet="Productos" />
+    </AssociationSet>
+    <FunctionImport Name="usp_ListaProductos" ReturnType="Collection(NeptunoModel.usp_ListaProductos_Result)" />
+  </EntityContainer>
+  <EntityType Name="Categorías">
+    <Key>
+      <PropertyRef Name="IdCategoría" />
+    </Key>
+    <Property Name="IdCategoría" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="NombreCategoría" Type="String" Nullable="false" MaxLength="15" Unicode="true" FixedLength="false" />
+    <Property Name="Descripción" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Imagen" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <NavigationProperty Name="Productos" Relationship="NeptunoModel.FK_Productos_Categorías" FromRole="Categorías" ToRole="Productos" />
+  </EntityType>
+  <EntityType Name="Cliente">
+    <Key>
+      <PropertyRef Name="IdCliente" />
+    </Key>
+    <Property Name="IdCliente" Type="String" Nullable="false" MaxLength="5" Unicode="true" FixedLength="false" />
+    <Property Name="NombreCompañía" Type="String" Nullable="false" MaxLength="40" Unicode="true" FixedLength="false" />
+    <Property Name="NombreContacto" Type="String" MaxLength="30" Unicode="true" FixedLength="false" />
+    <Property Name="CargoContacto" Type="String" MaxLength="30" Unicode="true" FixedLength="false" />
+    <Property Name="Dirección" Type="String" MaxLength="60" Unicode="true" FixedLength="false" />
+    <Property Name="Ciudad" Type="String" MaxLength="15" Unicode="true" FixedLength="false" />
+    <Property Name="Región" Type="String" MaxLength="15" Unicode="true" FixedLength="false" />
+    <Property Name="CódPostal" Type="String" MaxLength="10" Unicode="true" FixedLength="false" />
+    <Property Name="País" Type="String" MaxLength="15" Unicode="true" FixedLength="false" />
+    <Property Name="Teléfono" Type="String" MaxLength="24" Unicode="true" FixedLength="false" />
+    <Property Name="Fax" Type="String" MaxLength="24" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="Pedidos" Relationship="NeptunoModel.FK_Pedidos_Clientes" FromRole="Clientes" ToRole="Pedidos" />
+  </EntityType>
+  <EntityType Name="Detalle">
+    <Key>
+      <PropertyRef Name="IdPedido" />
+      <PropertyRef Name="IdProducto" />
+    </Key>
+    <Property Name="IdPedido" Type="Int32" Nullable="false" />
+    <Property Name="IdProducto" Type="Int32" Nullable="false" />
+    <Property Name="PrecioUnidad" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="Cantidad" Type="Int16" Nullable="false" />
+    <Property Name="Descuento" Type="Single" Nullable="false" />
+    <NavigationProperty Name="Pedido" Relationship="NeptunoModel.FK_Detalles_Pedidos" FromRole="Detalles" ToRole="Pedidos" />
+    <NavigationProperty Name="Producto" Relationship="NeptunoModel.FK_Detalles_Productos" FromRole="Detalles" ToRole="Productos" />
+  </EntityType>
+  <EntityType Name="Empleado">
+    <Key>
+      <PropertyRef Name="IdEmpleado" />
+    </Key>
+    <Property Name="IdEmpleado" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="Apellidos" Type="String" Nullable="false" MaxLength="20" Unicode="true" FixedLength="false" />
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="false" />
+    <Property Name="Cargo" Type="String" MaxLength="30" Unicode="true" FixedLength="false" />
+    <Property Name="Tratamiento" Type="String" MaxLength="25" Unicode="true" FixedLength="false" />
+    <Property Name="FechaNacimiento" Type="DateTime" Precision="0" />
+    <Property Name="FechaContratación" Type="DateTime" Precision="0" />
+    <Property Name="Dirección" Type="String" MaxLength="60" Unicode="true" FixedLength="false" />
+    <Property Name="Ciudad" Type="String" MaxLength="15" Unicode="true" FixedLength="false" />
+    <Property Name="Región" Type="String" MaxLength="15" Unicode="true" FixedLength="false" />
+    <Property Name="CódPostal" Type="String" MaxLength="10" Unicode="true" FixedLength="false" />
+    <Property Name="País" Type="String" MaxLength="15" Unicode="true" FixedLength="false" />
+    <Property Name="TelDomicilio" Type="String" MaxLength="24" Unicode="true" FixedLength="false" />
+    <Property Name="Extensión" Type="String" MaxLength="4" Unicode="true" FixedLength="false" />
+    <Property Name="Foto" Type="String" MaxLength="255" Unicode="true" FixedLength="false" />
+    <Property Name="Notas" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Jefe" Type="Int32" />
+    <NavigationProperty Name="Pedidos" Relationship="NeptunoModel.FK_Pedidos_Empleados" FromRole="Empleados" ToRole="Pedidos" />
+  </EntityType>
+  <EntityType Name="Pedido">
+    <Key>
+      <PropertyRef Name="IdPedido" />
+    </Key>
+    <Property Name="IdPedido" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="IdCliente" Type="String" Nullable="false" MaxLength="5" Unicode="true" FixedLength="false" />
+    <Property Name="IdEmpleado" Type="Int32" />
+    <Property Name="FechaPedido" Type="DateTime" Precision="0" />
+    <Property Name="FechaEntrega" Type="DateTime" Precision="0" />
+    <Property Name="FechaEnvío" Type="DateTime" Precision="0" />
+    <Property Name="FormaEnvío" Type="Int32" />
+    <Property Name="Cargo" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Destinatario" Type="String" MaxLength="40" Unicode="true" FixedLength="false" />
+    <Property Name="DirecciónDestinatario" Type="String" MaxLength="60" Unicode="true" FixedLength="false" />
+    <Property Name="CiudadDestinatario" Type="String" MaxLength="15" Unicode="true" FixedLength="false" />
+    <Property Name="RegiónDestinatario" Type="String" MaxLength="15" Unicode="true" FixedLength="false" />
+    <Property Name="CódPostalDestinatario" Type="String" MaxLength="10" Unicode="true" FixedLength="false" />
+    <Property Name="PaísDestinatario" Type="String" MaxLength="15" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="Cliente" Relationship="NeptunoModel.FK_Pedidos_Clientes" FromRole="Pedidos" ToRole="Clientes" />
+    <NavigationProperty Name="Detalles" Relationship="NeptunoModel.FK_Detalles_Pedidos" FromRole="Pedidos" ToRole="Detalles" />
+    <NavigationProperty Name="Empleado" Relationship="NeptunoModel.FK_Pedidos_Empleados" FromRole="Pedidos" ToRole="Empleados" />
+  </EntityType>
+  <EntityType Name="Producto">
+    <Key>
+      <PropertyRef Name="IdProducto" />
+    </Key>
+    <Property Name="IdProducto" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="NombreProducto" Type="String" Nullable="false" MaxLength="40" Unicode="true" FixedLength="false" />
+    <Property Name="IdProveedor" Type="Int32" />
+    <Property Name="IdCategoría" Type="Int32" />
+    <Property Name="CantidadPorUnidad" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+    <Property Name="PrecioUnidad" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="UnidadesEnExistencia" Type="Int16" />
+    <Property Name="UnidadesEnPedido" Type="Int16" />
+    <Property Name="NivelNuevoPedido" Type="Int32" />
+    <Property Name="Suspendido" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Categorías" Relationship="NeptunoModel.FK_Productos_Categorías" FromRole="Productos" ToRole="Categorías" />
+    <NavigationProperty Name="Detalles" Relationship="NeptunoModel.FK_Detalles_Productos" FromRole="Productos" ToRole="Detalles" />
+    <NavigationProperty Name="Proveedore" Relationship="NeptunoModel.FK_Productos_Proveedores" FromRole="Productos" ToRole="Proveedores" />
+  </EntityType>
+  <EntityType Name="Proveedore">
+    <Key>
+      <PropertyRef Name="IdProveedor" />
+    </Key>
+    <Property Name="IdProveedor" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="NombreCompañía" Type="String" Nullable="false" MaxLength="40" Unicode="true" FixedLength="false" />
+    <Property Name="NombreContacto" Type="String" MaxLength="30" Unicode="true" FixedLength="false" />
+    <Property Name="CargoContacto" Type="String" MaxLength="30" Unicode="true" FixedLength="false" />
+    <Property Name="Dirección" Type="String" MaxLength="60" Unicode="true" FixedLength="false" />
+    <Property Name="Ciudad" Type="String" MaxLength="15" Unicode="true" FixedLength="false" />
+    <Property Name="Región" Type="String" MaxLength="15" Unicode="true" FixedLength="false" />
+    <Property Name="CódPostal" Type="String" MaxLength="10" Unicode="true" FixedLength="false" />
+    <Property Name="País" Type="String" MaxLength="15" Unicode="true" FixedLength="false" />
+    <Property Name="Teléfono" Type="String" MaxLength="24" Unicode="true" FixedLength="false" />
+    <Property Name="Fax" Type="String" MaxLength="24" Unicode="true" FixedLength="false" />
+    <Property Name="PáginaPrincipal" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="Productos" Relationship="NeptunoModel.FK_Productos_Proveedores" FromRole="Proveedores" ToRole="Productos" />
+  </EntityType>
+  <Association Name="FK_Productos_Categorías">
+    <End Role="Categorías" Type="NeptunoModel.Categorías" Multiplicity="0..1" />
+    <End Role="Productos" Type="NeptunoModel.Producto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Categorías">
+        <PropertyRef Name="IdCategoría" />
+      </Principal>
+      <Dependent Role="Productos">
+        <PropertyRef Name="IdCategoría" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Pedidos_Clientes">
+    <End Role="Clientes" Type="NeptunoModel.Cliente" Multiplicity="1" />
+    <End Role="Pedidos" Type="NeptunoModel.Pedido" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Clientes">
+        <PropertyRef Name="IdCliente" />
+      </Principal>
+      <Dependent Role="Pedidos">
+        <PropertyRef Name="IdCliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Detalles_Pedidos">
+    <End Role="Pedidos" Type="NeptunoModel.Pedido" Multiplicity="1" />
+    <End Role="Detalles" Type="NeptunoModel.Detalle" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pedidos">
+        <PropertyRef Name="IdPedido" />
+      </Principal>
+      <Dependent Role="Detalles">
+        <PropertyRef Name="IdPedido" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Detalles_Productos">
+    <End Role="Productos" Type="NeptunoModel.Producto" Multiplicity="1" />
+    <End Role="Detalles" Type="NeptunoModel.Detalle" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Productos">
+        <PropertyRef Name="IdProducto" />
+      </Principal>
+      <Dependent Role="Detalles">
+        <PropertyRef Name="IdProducto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Pedidos_Empleados">
+    <End Role="Empleados" Type="NeptunoModel.Empleado" Multiplicity="0..1" />
+    <End Role="Pedidos" Type="NeptunoModel.Pedido" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Empleados">
+        <PropertyRef Name="IdEmpleado" />
+      </Principal>
+      <Dependent Role="Pedidos">
+        <PropertyRef Name="IdEmpleado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Productos_Proveedores">
+    <End Role="Proveedores" Type="NeptunoModel.Proveedore" Multiplicity="0..1" />
+    <End Role="Productos" Type="NeptunoModel.Producto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Proveedores">
+        <PropertyRef Name="IdProveedor" />
+      </Principal>
+      <Dependent Role="Productos">
+        <PropertyRef Name="IdProveedor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <ComplexType Name="usp_ListaProductos_Result">
+    <Property Type="Int32" Name="IdProducto" Nullable="false" />
+    <Property Type="String" Name="NombreProducto" Nullable="false" MaxLength="40" />
+    <Property Type="Int32" Name="IdProveedor" Nullable="true" />
+    <Property Type="Int32" Name="IdCategoría" Nullable="true" />
+    <Property Type="Decimal" Name="PrecioUnidad" Nullable="true" Precision="19" />
+    <Property Type="Int16" Name="UnidadesEnExistencia" Nullable="true" />
+  </ComplexType>
+</Schema>

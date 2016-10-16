@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="NeptunoModelStoreContainer" CdmEntityContainer="NeptunoEntities">
+    <EntitySetMapping Name="Productos">
+      <EntityTypeMapping TypeName="NeptunoModel.Producto">
+        <MappingFragment StoreEntitySet="Productos">
+          <ScalarProperty Name="IdProducto" ColumnName="IdProducto" />
+          <ScalarProperty Name="NombreProducto" ColumnName="NombreProducto" />
+          <ScalarProperty Name="IdProveedor" ColumnName="IdProveedor" />
+          <ScalarProperty Name="IdCategoría" ColumnName="IdCategoría" />
+          <ScalarProperty Name="CantidadPorUnidad" ColumnName="CantidadPorUnidad" />
+          <ScalarProperty Name="PrecioUnidad" ColumnName="PrecioUnidad" />
+          <ScalarProperty Name="UnidadesEnExistencia" ColumnName="UnidadesEnExistencia" />
+          <ScalarProperty Name="UnidadesEnPedido" ColumnName="UnidadesEnPedido" />
+          <ScalarProperty Name="NivelNuevoPedido" ColumnName="NivelNuevoPedido" />
+          <ScalarProperty Name="Suspendido" ColumnName="Suspendido" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="usp_Actualizar_Producto" FunctionName="NeptunoModel.Store.usp_Actualizar_Producto" />
+    <FunctionImportMapping FunctionImportName="usp_Eliminar_Producto" FunctionName="NeptunoModel.Store.usp_Eliminar_Producto" />
+    <FunctionImportMapping FunctionImportName="usp_Inserta_Producto" FunctionName="NeptunoModel.Store.usp_Inserta_Producto" />
+    <FunctionImportMapping FunctionImportName="usp_ListaCategorias" FunctionName="NeptunoModel.Store.usp_ListaCategorias">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="NeptunoModel.usp_ListaCategorias_Result">
+          <ScalarProperty Name="IdCategoría" ColumnName="IdCategoría" />
+          <ScalarProperty Name="NombreCategoría" ColumnName="NombreCategoría" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_ListaProductos" FunctionName="NeptunoModel.Store.usp_ListaProductos">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="NeptunoModel.usp_ListaProductos_Result">
+          <ScalarProperty Name="IdProducto" ColumnName="IdProducto" />
+          <ScalarProperty Name="NombreProducto" ColumnName="NombreProducto" />
+          <ScalarProperty Name="IdProveedor" ColumnName="IdProveedor" />
+          <ScalarProperty Name="IdCategoría" ColumnName="IdCategoría" />
+          <ScalarProperty Name="PrecioUnidad" ColumnName="PrecioUnidad" />
+          <ScalarProperty Name="UnidadesEnExistencia" ColumnName="UnidadesEnExistencia" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_ListaProveedores" FunctionName="NeptunoModel.Store.usp_ListaProveedores">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="NeptunoModel.usp_ListaProveedores_Result">
+          <ScalarProperty Name="IdProveedor" ColumnName="IdProveedor" />
+          <ScalarProperty Name="NombreCompañía" ColumnName="NombreCompañía" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_Producto_Por_Codigo" FunctionName="NeptunoModel.Store.usp_Producto_Por_Codigo">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="NeptunoModel.usp_Producto_Por_Codigo_Result">
+          <ScalarProperty Name="IdProducto" ColumnName="IdProducto" />
+          <ScalarProperty Name="NombreProducto" ColumnName="NombreProducto" />
+          <ScalarProperty Name="IdProveedor" ColumnName="IdProveedor" />
+          <ScalarProperty Name="IdCategoría" ColumnName="IdCategoría" />
+          <ScalarProperty Name="PrecioUnidad" ColumnName="PrecioUnidad" />
+          <ScalarProperty Name="UnidadesEnExistencia" ColumnName="UnidadesEnExistencia" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

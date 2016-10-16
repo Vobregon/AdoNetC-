@@ -1,0 +1,9 @@
+E:\Program Files\AdoNet\AdoNet05\AdoNet05\bin\Debug\AdoNet05.exe.config
+E:\Program Files\AdoNet\AdoNet05\AdoNet05\bin\Debug\AdoNet05.exe
+E:\Program Files\AdoNet\AdoNet05\AdoNet05\bin\Debug\AdoNet05.pdb
+E:\Program Files\AdoNet\AdoNet05\AdoNet05\obj\Debug\AdoNet05.csprojResolveAssemblyReference.cache
+E:\Program Files\AdoNet\AdoNet05\AdoNet05\obj\Debug\AdoNet05.Properties.Resources.resources
+E:\Program Files\AdoNet\AdoNet05\AdoNet05\obj\Debug\AdoNet05.View.frmRegistraVentas.resources
+E:\Program Files\AdoNet\AdoNet05\AdoNet05\obj\Debug\AdoNet05.csproj.GenerateResource.Cache
+E:\Program Files\AdoNet\AdoNet05\AdoNet05\obj\Debug\AdoNet05.exe
+E:\Program Files\AdoNet\AdoNet05\AdoNet05\obj\Debug\AdoNet05.pdb

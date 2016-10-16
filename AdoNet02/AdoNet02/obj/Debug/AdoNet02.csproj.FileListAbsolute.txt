@@ -1,0 +1,21 @@
+E:\Program Files\AdoNet\AdoNet02\AdoNet02\bin\Debug\AdoNet02.exe.config
+E:\Program Files\AdoNet\AdoNet02\AdoNet02\obj\Debug\AdoNet02.csprojResolveAssemblyReference.cache
+E:\Program Files\AdoNet\AdoNet02\AdoNet02\obj\Debug\AdoNet02.Properties.Resources.resources
+E:\Program Files\AdoNet\AdoNet02\AdoNet02\obj\Debug\AdoNet02.View.frmEmpleado.resources
+E:\Program Files\AdoNet\AdoNet02\AdoNet02\obj\Debug\AdoNet02.csproj.GenerateResource.Cache
+E:\Program Files\AdoNet\AdoNet02\AdoNet02\bin\Debug\AdoNet02.exe
+E:\Program Files\AdoNet\AdoNet02\AdoNet02\bin\Debug\AdoNet02.pdb
+E:\Program Files\AdoNet\AdoNet02\AdoNet02\obj\Debug\AdoNet02.exe
+E:\Program Files\AdoNet\AdoNet02\AdoNet02\obj\Debug\AdoNet02.pdb
+G:\Obregon\Nueva carpeta\AdoNet02\AdoNet02\bin\Debug\AdoNet02.exe.config
+G:\Obregon\Nueva carpeta\AdoNet02\AdoNet02\obj\Debug\AdoNet02.exe
+G:\Obregon\Nueva carpeta\AdoNet02\AdoNet02\obj\Debug\AdoNet02.pdb
+F:\Obregon\Profe\AdoNet02\AdoNet02\bin\Debug\AdoNet02.exe.config
+F:\Obregon\Profe\AdoNet02\AdoNet02\obj\Debug\AdoNet02.exe
+F:\Obregon\Profe\AdoNet02\AdoNet02\obj\Debug\AdoNet02.pdb
+F:\Obregon\Profe\AdoNet02\AdoNet02\bin\Debug\AdoNet02.exe
+F:\Obregon\Profe\AdoNet02\AdoNet02\bin\Debug\AdoNet02.pdb
+F:\Obregon\Profe\AdoNet02\AdoNet02\obj\Debug\AdoNet02.csprojResolveAssemblyReference.cache
+F:\Obregon\Profe\AdoNet02\AdoNet02\obj\Debug\AdoNet02.Properties.Resources.resources
+F:\Obregon\Profe\AdoNet02\AdoNet02\obj\Debug\AdoNet02.View.frmEmpleado.resources
+F:\Obregon\Profe\AdoNet02\AdoNet02\obj\Debug\AdoNet02.csproj.GenerateResource.Cache

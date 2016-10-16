@@ -1,0 +1,17 @@
+E:\Program Files\AdoNet\AdoNet06\AdoNet06\bin\Debug\AdoNet06.exe.config
+E:\Program Files\AdoNet\AdoNet06\AdoNet06\obj\Debug\AdoNet06.csprojResolveAssemblyReference.cache
+E:\Program Files\AdoNet\AdoNet06\AdoNet06\obj\Debug\AdoNet06.Properties.Resources.resources
+E:\Program Files\AdoNet\AdoNet06\AdoNet06\obj\Debug\AdoNet06.csproj.GenerateResource.Cache
+E:\Program Files\AdoNet\AdoNet06\AdoNet06\obj\Debug\AdoNet06.Vistas.frmReporte1.resources
+E:\Program Files\AdoNet\AdoNet06\AdoNet06\bin\Debug\AdoNet06.exe
+E:\Program Files\AdoNet\AdoNet06\AdoNet06\bin\Debug\AdoNet06.pdb
+E:\Program Files\AdoNet\AdoNet06\AdoNet06\obj\Debug\AdoNet06.exe
+E:\Program Files\AdoNet\AdoNet06\AdoNet06\obj\Debug\AdoNet06.pdb
+E:\Program Files\AdoNet\AdoNet06\AdoNet06\obj\Debug\AdoNet06.Vistas.frmFactura.resources
+E:\Program Files\AdoNet\AdoNet06\AdoNet06\obj\Debug\AdoNet06.Vistas.frmImprimir.resources
+G:\AdoNet\AdoNet06\AdoNet06\bin\Debug\AdoNet06.exe.config
+G:\AdoNet\AdoNet06\AdoNet06\obj\Debug\AdoNet06.exe
+G:\AdoNet\AdoNet06\AdoNet06\obj\Debug\AdoNet06.pdb
+F:\AdoNet\AdoNet06\AdoNet06\bin\Debug\AdoNet06.exe.config
+F:\AdoNet\AdoNet06\AdoNet06\obj\Debug\AdoNet06.exe
+F:\AdoNet\AdoNet06\AdoNet06\obj\Debug\AdoNet06.pdb

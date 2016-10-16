@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="NeptunoModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="NeptunoEntities" p1:LazyLoadingEnabled="true">
+    <EntitySet Name="Productos" EntityType="NeptunoModel.Producto" />
+    <FunctionImport Name="usp_Actualizar_Producto">
+      <Parameter Name="Nombre" Mode="In" Type="String" />
+      <Parameter Name="IdProveedor" Mode="In" Type="Int32" />
+      <Parameter Name="IdCategoria" Mode="In" Type="Int32" />
+      <Parameter Name="Precio" Mode="In" Type="Decimal" />
+      <Parameter Name="Stock" Mode="In" Type="Int32" />
+      <Parameter Name="IdProducto" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="usp_Eliminar_Producto">
+      <Parameter Name="IdProducto" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="usp_Inserta_Producto">
+      <Parameter Name="Nombre" Mode="In" Type="String" />
+      <Parameter Name="IdProveedor" Mode="In" Type="Int32" />
+      <Parameter Name="IdCategoria" Mode="In" Type="Int32" />
+      <Parameter Name="Precio" Mode="In" Type="Decimal" />
+      <Parameter Name="Stock" Mode="In" Type="Int32" />
+      <Parameter Name="IdProducto" Mode="InOut" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="usp_ListaCategorias" ReturnType="Collection(NeptunoModel.usp_ListaCategorias_Result)" />
+    <FunctionImport Name="usp_ListaProductos" ReturnType="Collection(NeptunoModel.usp_ListaProductos_Result)" />
+    <FunctionImport Name="usp_ListaProveedores" ReturnType="Collection(NeptunoModel.usp_ListaProveedores_Result)" />
+    <FunctionImport Name="usp_Producto_Por_Codigo" ReturnType="Collection(NeptunoModel.usp_Producto_Por_Codigo_Result)">
+      <Parameter Name="IdProducto" Mode="In" Type="Int32" />
+    </FunctionImport>
+  </EntityContainer>
+  <EntityType Name="Producto">
+    <Key>
+      <PropertyRef Name="IdProducto" />
+    </Key>
+    <Property Name="IdProducto" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="NombreProducto" Type="String" Nullable="false" MaxLength="40" Unicode="true" FixedLength="false" />
+    <Property Name="IdProveedor" Type="Int32" />
+    <Property Name="IdCategoría" Type="Int32" />
+    <Property Name="CantidadPorUnidad" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+    <Property Name="PrecioUnidad" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="UnidadesEnExistencia" Type="Int16" />
+    <Property Name="UnidadesEnPedido" Type="Int16" />
+    <Property Name="NivelNuevoPedido" Type="Int32" />
+    <Property Name="Suspendido" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <ComplexType Name="usp_ListaCategorias_Result">
+    <Property Type="Int32" Name="IdCategoría" Nullable="false" />
+    <Property Type="String" Name="NombreCategoría" Nullable="false" MaxLength="15" />
+  </ComplexType>
+  <ComplexType Name="usp_ListaProductos_Result">
+    <Property Type="Int32" Name="IdProducto" Nullable="false" />
+    <Property Type="String" Name="NombreProducto" Nullable="false" MaxLength="40" />
+    <Property Type="Int32" Name="IdProveedor" Nullable="true" />
+    <Property Type="Int32" Name="IdCategoría" Nullable="true" />
+    <Property Type="Decimal" Name="PrecioUnidad" Nullable="true" Precision="19" />
+    <Property Type="Int16" Name="UnidadesEnExistencia" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="usp_ListaProveedores_Result">
+    <Property Type="Int32" Name="IdProveedor" Nullable="false" />
+    <Property Type="String" Name="NombreCompañía" Nullable="false" MaxLength="40" />
+  </ComplexType>
+  <ComplexType Name="usp_Producto_Por_Codigo_Result">
+    <Property Type="Int32" Name="IdProducto" Nullable="false" />
+    <Property Type="String" Name="NombreProducto" Nullable="false" MaxLength="40" />
+    <Property Type="Int32" Name="IdProveedor" Nullable="true" />
+    <Property Type="Int32" Name="IdCategoría" Nullable="true" />
+    <Property Type="Decimal" Name="PrecioUnidad" Nullable="true" Precision="19" />
+    <Property Type="Int16" Name="UnidadesEnExistencia" Nullable="true" />
+  </ComplexType>
+</Schema>

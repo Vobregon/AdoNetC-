@@ -1,0 +1,9 @@
+E:\Program Files\AdoNet\Adonet03\Adonet03\bin\Debug\Adonet03.exe.config
+E:\Program Files\AdoNet\Adonet03\Adonet03\obj\Debug\Adonet03.csprojResolveAssemblyReference.cache
+E:\Program Files\AdoNet\Adonet03\Adonet03\obj\Debug\Adonet03.Properties.Resources.resources
+E:\Program Files\AdoNet\Adonet03\Adonet03\obj\Debug\Adonet03.csproj.GenerateResource.Cache
+E:\Program Files\AdoNet\Adonet03\Adonet03\bin\Debug\Adonet03.exe
+E:\Program Files\AdoNet\Adonet03\Adonet03\bin\Debug\Adonet03.pdb
+E:\Program Files\AdoNet\Adonet03\Adonet03\obj\Debug\Adonet03.frmProducto.resources
+E:\Program Files\AdoNet\Adonet03\Adonet03\obj\Debug\Adonet03.exe
+E:\Program Files\AdoNet\Adonet03\Adonet03\obj\Debug\Adonet03.pdb
